@@ -1,3 +1,5 @@
 venv/
 machine_learning.egg-info/
 logs/
+__pycache__
+
