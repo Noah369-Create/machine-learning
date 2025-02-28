@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Exam Performance Indicator - Predict your math score based on various factors.">
+    <title>Student Exam Performance Indicator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Student Exam Performance Indicator</h1>
+    </header>
+
+    <main class="container my-5">
+        <form action="{{ url_for('predict_datapoint') }}" method="post" class="card p-4 shadow">
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="" selected disabled>Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="race_ethnicity" class="form-label">Race or Ethnicity</label>
+                <select class="form-control" id="race_ethnicity" name="race_ethnicity" required>
+                    <option value="" selected disabled>Select Ethnicity</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="parental_level_of_education" class="form-label">Parental Level of Education</label>
+                <select class="form-control" id="parental_level_of_education" name="parental_level_of_education" required>
+                    <option value="" selected disabled>Select Parent Education</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="high school">High School</option>
+                    <option value="master's degree">Master's Degree</option>
+                    <option value="some college">Some College</option>
+                    <option value="some high school">Some High School</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="lunch" class="form-label">Lunch Type</label>
+                <select class="form-control" id="lunch" name="lunch" required>
+                    <option value="" selected disabled>Select Lunch Type</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                    <option value="standard">Standard</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="test_preparation_course" class="form-label">Test Preparation Course</label>
+                <select class="form-control" id="test_preparation_course" name="test_preparation_course" required>
+                    <option value="" selected disabled>Select Test Course</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="writing_score" class="form-label">Writing Score out of 100</label>
+                <input class="form-control" type="number" id="writing_score" name="writing_score" placeholder="Enter your Writing Score" min="0" max="100" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="reading_score" class="form-label">Reading Score out of 100</label>
+                <input class="form-control" type="number" id="reading_score" name="reading_score" placeholder="Enter your Reading Score" min="0" max="100" required>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary w-100">Predict your Maths Score</button>
+            </div>
+        </form>
+
+        <div class="mt-4 text-center">
+            <h2>The prediction is: {{ results }}</h2>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
