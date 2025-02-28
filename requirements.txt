@@ -7,5 +7,6 @@ plotly
 catboost
 xgboost
 dill
-# -e .
+flask
+ -e .
 
