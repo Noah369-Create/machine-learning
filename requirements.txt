@@ -6,5 +6,6 @@ seaborn
 plotly
 catboost
 xgboost
+dill
 # -e .
 
